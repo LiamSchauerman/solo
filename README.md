@@ -15,28 +15,28 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+CageMatch: a quick way to reveal which Nicolas Cage movie is the Best. Two movies match up against each other, one wins and one loses. Rankings emerge.
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+Anyone who has struggled with identifying their favorite Cage movie will benefit.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+CageMatch is a fun and simple way to rank your favorite Nic Cage movies. 
 
 ## Problem ##
-  > Describe the problem your product solves.
+There is no go-to rating system for Nicolas Cage movies. 
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+Users can spend 5 seconds or 5 minutes on this site and contribute to the overall rankings.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+CageMatch is an exciting new way to find out which Cage film you (and the world) prefer.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+Getting started is as easy as clicking "Con Air"
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+I thought my favorite was "The Rock". I had no idea it was actually "Raising Arizona"
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+Next check out //url here// to start ranking!
