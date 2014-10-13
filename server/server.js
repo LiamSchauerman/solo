@@ -1,17 +1,18 @@
-  var express = require('express');
-  var app = express();
+var express = require('express');
+var app = express();
 
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'ejs');
-  app.use(partials());
-  app.use(express.bodyParser());
-  app.use(express.static(__dirname + '/client'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
+app.set('views', __dirname + './../client');
+app.use(express.static(__dirname + './../client'));
+// app.use(express.bodyParser());
 
 
 
 app.listen(4568)
 
 
-app.get('/', function(){
+app.get('/', function(req, res){
 	res.render('index')
 })
