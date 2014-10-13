@@ -30,13 +30,40 @@ var data = [
 			imdbId: 'tt0368891'
 		},
 	];
+var inPlay;
+var winner;
+var loser;
 $(document).on('ready', function(){
+	// CLICKING ON A MOVIE
 	$('.movieContainer').on('click', function(){
-		var nums = twoRandomNumbers();
-		renderMovie('#left', nums[0])
-		renderMovie('#right', nums[1])
+		// declaring the winner
+			// winner score+50
+			// loser score-50
+		// generate new movies
+
+	// if this.hasId #left
+		// inPlay[0] is winner
+		console.log(inPlay)
+		if(inPlay){
+			if (winner === 'left') {
+				data[inPlay[0]].score += 50;
+				data[inPlay[1]].score -= 50;
+			} else {
+				data[inPlay[1]].score += 50;
+				data[inPlay[0]].score -= 50;
+			}
+		}
+
+
+
+
+		inPlay = twoRandomNumbers();
+		renderMovie('#left', inPlay[0])
+		renderMovie('#right', inPlay[1])
+		showRankings();
 	});
 
+// returns array of two random numbers
 var twoRandomNumbers = function(){
 	var indexA = Math.floor(Math.random()*data.length);
 	var indexB = Math.floor(Math.random()*data.length);
@@ -55,7 +82,14 @@ var renderMovie = function(dest, index) {
 	$(dest).html(htmlTemplate)
 }
 
-
+// generates 'rankings' html
+var showRankings = function(){
+	var html = '';
+	for(var i=0; i<data.length; i++ ) {
+		html+='<div>'+data[i].title+': '+data[i].score
+	};
+	$('#rankings').html(html);
+}
 
 
 
