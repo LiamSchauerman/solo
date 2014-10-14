@@ -54,17 +54,17 @@ $(document).on('ready', function(){
 	}
 
 	// generates 'rankings' html
-	var showRankings = function(){
-		var html = '';
-		for(var i=0; i<data.length; i++ ) {
-			html+='<div>'+data[i].title+': '+data[i].score
-		};
-		$('#rankings').html(html);
-	}
+	// var showRankings = function(){
+	// 	var html = '';
+	// 	for(var i=0; i<data.length; i++ ) {
+	// 		html+='<div>'+data[i].title+': '+data[i].score
+	// 	};
+	// 	$('#rankings').html(html);
+	// }
 	inPlay = twoRandomNumbers();
 	renderMovie('#left', inPlay[0])
 	renderMovie('#right', inPlay[1])
-	showRankings();
+	// showRankings();
 	// CLICKING ON A MOVIE
 	$('.movieContainer').on('click', function(){
 		// declaring the winner
@@ -94,7 +94,7 @@ $(document).on('ready', function(){
 		inPlay = twoRandomNumbers();
 		renderMovie('#left', inPlay[0])
 		renderMovie('#right', inPlay[1])
-		showRankings();
+		// showRankings();
 	});
 
 
