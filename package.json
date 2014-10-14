@@ -2,7 +2,7 @@
   "name": "cagematch",
   "version": "0.0.0",
   "description": "Cage Match",
-  "main": "server/server.js",
+  "main": "server.js",
   "dependencies": {
     "angular": "^1.2.23",
     "body-parser": "^1.4.3",
