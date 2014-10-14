@@ -1,26 +1,44 @@
 body {
+	background-image: url('../images/fence.jpg')
+}
+#container {
+	margin:auto;
 	width: 800px;
 }
 #header {
-	font-size: 30px;
+	font-size: 50px;
 	color: green;
 	text-align:center;
 	width:100%;
+	background-color: black;
+	color:white;
+	border-radius: 30px;
 }
 #matchup {
 	border: 2px solid black;
+	background-color: gray;
 	width: 800px;
 	min-height: 500px;
 	text-align: center;
+	opacity:0.95;
+	border-radius: 60px;
+	padding-bottom: 10px;
 }
 .movieContainer {
 	float:left;
 	width: 350px;
 	height:400px;
 	padding:24px;
-	border:1px solid green;
 }
 #matchupFooter {
-	font-size:16px;
-	color:blue;
+	font-size:22px;
+	color:white;
+}
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+* {
+	/*border: 1px solid orange;*/
 }

@@ -1,5 +1,4 @@
 <div id='matchup' ng-controller='MatchupController'> 
-
 	<div class='movieContainer' ng-click='declareWinner(inPlay[0], inPlay[1])'>
 		<h1>{{data[inPlay[0]].title}}</h1>
 		<img src={{data[inPlay[0]].imgUrl}} />
@@ -11,8 +10,11 @@
 	</div>
 	<br style='clear:both'>
 	<div id='matchupFooter'>
+		<h2>Rankings</h2>
 		<ul>
-			<li ng-repeat='obj in data | orderBy:score'>{{obj.title}}: {{obj.score}}</li>
+			<li ng-repeat='obj in data | orderBy:"score":"reverse"'>
+				{{obj.title}}: {{obj.score}}
+			</li>
 		</ul>
 	</div>
 </div>
