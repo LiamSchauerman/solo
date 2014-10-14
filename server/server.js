@@ -20,6 +20,6 @@ app.listen(port)
 
 
 app.get('/', function(req, res){
-	res.render('index')
+	res.render('index.html')
 })
 // app.post()
