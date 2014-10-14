@@ -13,17 +13,15 @@ angular.module('cageMatch', ['ngRoute'])
 .controller('MatchupController', function ($scope, MakeMatchup){
 
 	$scope.data = MakeMatchup.movies
-
 	$scope.inPlay = MakeMatchup.twoRandomNumbers()
-
 	$scope.declareWinner = function(winner, loser){
-		MakeMatchup.declareWinner(winner, loser)
-		$scope.inPlay = MakeMatchup.twoRandomNumbers()
+		MakeMatchup.declareWinner(winner, loser);
+		$scope.inPlay = MakeMatchup.twoRandomNumbers();
 	}
 
 })
-.factory('MakeMatchup', function(){
 
+.factory('MakeMatchup', function(){
 	var movies = [
 		{
 			title: 'Con Air',
@@ -66,16 +64,27 @@ angular.module('cageMatch', ['ngRoute'])
 		return [indexA, indexB];
 	}
 
-
 	var declareWinner = function(winner, loser) {
-		movies[winner].score += 100;
-		movies[loser].score -= 100;
+		// movies[winner].score += 100;
+		// movies[loser].score -= 100;
+		var winExp = 1/(1+Math.pow(10, ( movies[loser].score - movies[winner].score )/400));
+		var K = 24;
+		console.log(winExp);
+		var winScore = movies[winner].score + K*(1-winExp);
+		var diff = winScore - movies[winner].score;
+		console.log("diff", diff)
+		movies[winner].score += Math.floor(diff);
+		movies[loser].score -= Math.floor(diff);
+
+
+		// find the amount added to winner, subtract that from loser
 	}
 
 	return {
 		twoRandomNumbers: twoRandomNumbers,
-		declareWinner: declareWinner,
-		movies: movies
+		movies: movies,
+		declareWinner: declareWinner
 	}
 
 })
+
