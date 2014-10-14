@@ -6,7 +6,7 @@
     },
   "version": "0.0.0",
   "description": "Cage Match",
-  "main": "cagematchNg.js",
+  "main": "server.js",
   "dependencies": {
     "angular": "^1.2.23",
     "body-parser": "^1.4.3",
