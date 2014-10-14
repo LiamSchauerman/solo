@@ -7,10 +7,10 @@ app = express();
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.set('views', __dirname + './../client/views');
+// app.set('views', __dirname + '/client/views');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + './../client'));
+app.use(express.static(__dirname + '/client'));
 // app.use(express.bodyParser());
 // app.use(app.router)
 
