@@ -4,7 +4,7 @@ var app = express();
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.set('views', __dirname + './../client');
+app.set('views', __dirname + './../client/views');
 app.use(express.static(__dirname + './../client'));
 // app.use(express.bodyParser());
 

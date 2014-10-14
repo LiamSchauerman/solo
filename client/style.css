@@ -10,7 +10,7 @@ body {
 #matchup {
 	border: 2px solid black;
 	width: 800px;
-	height: 500px;
+	min-height: 500px;
 	text-align: center;
 }
 .movieContainer {
