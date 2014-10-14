@@ -9,7 +9,7 @@
 		<img src={{data[inPlay[1]].imgUrl}} />
 	</div>
 	<br style='clear:both'>
-	<div id='matchupFooter'>
+	<div id='matchupFooter' ng-click='fetch()'>
 		<h2>Rankings</h2>
 		<ul>
 			<li ng-repeat='obj in data | orderBy:"score":"reverse"'>
