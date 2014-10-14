@@ -20,8 +20,8 @@ app.use(function(req, res, next){
 // app.use(app.router)
 
 
-
-app.listen(4568)
+var port = process.env.PORT || 4568;
+app.listen(port)
 
 
 app.get('/', function(req, res){
