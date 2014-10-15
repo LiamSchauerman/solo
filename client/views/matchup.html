@@ -10,7 +10,7 @@
 	</div>
 	<br style='clear:both'>
 	<div id='matchupFooter' ng-click='fetch()'>
-		<h2>Rankings</h2>
+		<!-- <button name='showRankings'>Show Rankings</button> -->
 		<ul>
 			<li ng-repeat='obj in data | orderBy:"score":"reverse"'>
 				{{obj.title}}: {{obj.score}}
