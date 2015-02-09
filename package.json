@@ -1,9 +1,9 @@
 {
   "name": "cagematch",
-  "repository" :
-    { "type" : "git"
-    , "url" : "https://github.com/LiamSchauerman/2014-09-solo.git"
-    },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LiamSchauerman/2014-09-solo.git"
+  },
   "version": "0.0.0",
   "description": "Cage Match",
   "main": "server.js",
@@ -16,6 +16,8 @@
     "ejs": "*",
     "express": "^4.4.5",
     "firebase": "^1.1.2",
+    "mongodb": "^1.4.30",
+    "monk": "^0.9.1",
     "morgan": "~1.0.0",
     "mysql": "^2.5.1",
     "nodemon": "^1.2.1",

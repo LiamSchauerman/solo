@@ -30,4 +30,18 @@ console.log("Server listening on ", port)
 app.get('/', function(req, res){
 	res.render('index.html')
 })
+
+
+// get mongo data
+app.get('/title', function(req, res){
+	var db = req.db;
+	var collection = db.get("generalInfo");
+	console.log(collection);
+	collection.find({},{}, function(e,docs){
+		if(e) console.log(e);
+		res.status(200).json({
+			"docresults" : docs
+		});
+	});
+});
 // app.post()
