@@ -36,7 +36,6 @@ app.get('/', function(req, res){
 app.get('/title', function(req, res){
 	var db = req.db;
 	var collection = db.get("generalInfo");
-	console.log(collection);
 	collection.find({},{}, function(e,docs){
 		if(e) console.log(e);
 		res.status(200).json({
@@ -44,4 +43,21 @@ app.get('/title', function(req, res){
 		});
 	});
 });
+app.post('/post', function(req,res){
+	var db = req.db;
+	var collection = db.get('generalInfo');
+	collection.insert({
+		"testKey" : "TestValue",
+		"TestObject" : {
+			"nested" : true
+		}
+	}, function(err, doc){
+		if( err ){
+			res.send("Error in post")
+		} else {
+			res.location('title');
+			res.redirect('title');
+		}
+	})
+})
 // app.post()
