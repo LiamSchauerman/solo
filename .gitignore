@@ -1,6 +1,6 @@
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
-
+notes.txt
 node_modules/
 bower_components/
