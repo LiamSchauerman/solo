@@ -30,10 +30,10 @@ app.use(express.static(__dirname+"/client"));
 
 
 
-// app.get('/', function(req, res){
-// 	res.render('index.html')
-// })
-app.get('/', function(req, res) {
+app.get('/', function(req, res){
+	res.render('index.html')
+})
+app.get('/postgres', function(req, res) {
   var date = new Date();
 
   client.query('INSERT INTO mytable(date) VALUES($1)', [date]);
