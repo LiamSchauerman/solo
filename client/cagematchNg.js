@@ -27,21 +27,15 @@ app.controller('MatchupController', function($scope, MakeMatchup, $firebase){
   var ref = new Firebase("https://burning-torch-5059.firebaseio.com/");
   var sync = $firebase(ref);
   $scope.data = sync.$asArray();
-  console.log($scope.data);
-  
-	$scope.inPlay = MakeMatchup.twoRandomNumbers();
+
+	$scope.inPlay = MakeMatchup.twoRandomNumbers()
 	$scope.declareWinner = function(winner, loser){
 		var winExp = 1/(1+Math.pow(10, ( $scope.data[loser].score - $scope.data[winner].score )/400));
 		var K = 24;
 		var winScore = $scope.data[winner].score + K*(1-winExp);
 		var diff = winScore - $scope.data[winner].score;
-		console.log(winner)
-		console.log($scope.data[winner])
-		console.log($scope.data[2])
-		console.log($scope.data[winner].score)
 		console.log("diff", diff)
 		$scope.diff = diff;
-		console.log(winner, loser)
 		$scope.data[winner].score += Math.floor(diff);
 		$scope.data[loser].score -= Math.floor(diff);
 

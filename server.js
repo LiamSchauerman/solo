@@ -7,15 +7,11 @@ var pg = require('pg')
   , connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/postgres'
   , client
   , query;
-// var conString = "postgres://postgres:1234@localhost/postgres";
 var port = process.env.PORT || 1337;
 client = new pg.Client(connectionString);
 client.connect();
-// query = client.query('SELECT * FROM mytable');
-// query.on('end', function() { client.end(); });
 
 app = express();
-
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -23,11 +19,6 @@ app.set('view engine', 'html');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname+"/client"));
-
-// app.use(express.bodyParser());
-// app.use(app.router)
-
-
 
 
 app.get('/', function(req, res){
