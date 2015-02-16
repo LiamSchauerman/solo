@@ -171,13 +171,28 @@ app.factory('MakeMatchup', function(){
 })
 
 $(document).on('ready', function(){
+	var imdbResponse = document.createElement('div');
 	$("#testButton").on('click', function(){
 		console.log('in click')
 		$.get('/scrape', function(html){
 			console.log('inside ajax success');
 			// var children = html.getElementsByClassName('filmo-category-section')[0].children;
-			console.log(typeof html);
+			imdbResponse.innerHTML = html;
+			parseHTML(imdbResponse);
 		})
 	})
+	function parseHTML(element){
+		var children = imdbResponse.getElementsByClassName('filmo-category-section')[0].children;
+		var titles = [];
+		for( var i=0; i<children.length; i++){
+			var name = children[i].querySelector('b > a').innerHTML;
+			titles.push(name)
+		}
+		console.log(children.length);
+		console.log(titles);
+	}
+	function getTitle(childEl){
+
+	}
 	
 })
