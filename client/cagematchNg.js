@@ -24,9 +24,9 @@ var app = angular.module('cageMatch', ['ngRoute', 'firebase'])
 
 app.controller('MatchupController', function($scope, MakeMatchup, $firebase){
 		//FIREBASE
-  var ref = new Firebase("https://burning-torch-5059.firebaseio.com/");
-  var sync = $firebase(ref);
-  $scope.data = sync.$asArray();
+	var ref = new Firebase("https://burning-torch-5059.firebaseio.com/");
+	var sync = $firebase(ref);
+	$scope.data = sync.$asArray();
 
 	$scope.inPlay = MakeMatchup.twoRandomNumbers()
 	$scope.declareWinner = function(winner, loser){
@@ -50,7 +50,6 @@ app.controller('MatchupController', function($scope, MakeMatchup, $firebase){
 			$scope.rankings === true ? $scope.rankings = false : $scope.rankings = true;
 		}
 	};
-
 })
 
 app.factory('MakeMatchup', function(){
@@ -171,3 +170,14 @@ app.factory('MakeMatchup', function(){
 
 })
 
+$(document).on('ready', function(){
+	$("#testButton").on('click', function(){
+		console.log('in click')
+		$.get('/scrape', function(html){
+			console.log('inside ajax success');
+			// var children = html.getElementsByClassName('filmo-category-section')[0].children;
+			console.log(typeof html);
+		})
+	})
+	
+})
