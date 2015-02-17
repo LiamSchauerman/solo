@@ -35,7 +35,7 @@ app.use(function(req, res, next) {
 
 app.get('/scrape', function(req, res){
   console.log('inside /scrape route');
-  request('http://www.imdb.com/name/nm0002071', function (error, response, body) {
+  request('http://www.imdb.com/name/nm0000115', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       res.send(body)
     }

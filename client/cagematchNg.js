@@ -184,15 +184,18 @@ $(document).on('ready', function(){
 	function parseHTML(element){
 		var children = imdbResponse.getElementsByClassName('filmo-category-section')[0].children;
 		var titles = [];
+		debugger;
 		for( var i=0; i<children.length; i++){
-			var name = children[i].querySelector('b > a').innerHTML;
-			titles.push(name)
+			var data = {};
+			if(children[i].querySelector('.year_column').innerHTML.match(/\d{4}/)){
+				data.year = children[i].querySelector('.year_column').innerHTML.match(/\d{4}/)[0];
+			}
+			// var name = children[i].querySelector('b > a').innerHTML;
+			data.title = children[i].querySelector('b > a').innerHTML;
+			titles.push(data)
 		}
 		console.log(children.length);
 		console.log(titles);
-	}
-	function getTitle(childEl){
-
 	}
 	
 })
