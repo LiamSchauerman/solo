@@ -24,9 +24,9 @@ var app = angular.module('cageMatch', ['ngRoute', 'firebase'])
 
 app.controller('MatchupController', function($scope, MakeMatchup, $firebase){
 		//FIREBASE
-  var ref = new Firebase("https://burning-torch-5059.firebaseio.com/");
-  var sync = $firebase(ref);
-  $scope.data = sync.$asArray();
+	var ref = new Firebase("https://burning-torch-5059.firebaseio.com/");
+	var sync = $firebase(ref);
+	$scope.data = sync.$asArray();
 
 	$scope.inPlay = MakeMatchup.twoRandomNumbers()
 	$scope.declareWinner = function(winner, loser){
@@ -50,7 +50,6 @@ app.controller('MatchupController', function($scope, MakeMatchup, $firebase){
 			$scope.rankings === true ? $scope.rankings = false : $scope.rankings = true;
 		}
 	};
-
 })
 
 app.factory('MakeMatchup', function(){
@@ -170,4 +169,76 @@ app.factory('MakeMatchup', function(){
 	}
 
 })
+var titles = [];
+$(document).on('ready', function(){
+
+	//create a dummy dom element so we can access DOM selector methods
+	var imdbResponse = document.createElement('div');
+
+	//binding the click event to our /scrape endpoint
+	$("#testButton").on('click', function(){
+		console.log('in click')
+		$.get('/scrape', function(html){
+			imdbResponse.innerHTML = html;
+			var cagedWisdom = parseHTML(imdbResponse);
+			// postTitles(cagedWisdom);
+		})
+	})
+	function parseHTML(element){
+		// takes imdb html, returns an array of objects
+		var children = imdbResponse.getElementsByClassName('filmo-category-section')[0].children;
+		var data;
+		for( var i=0; i<children.length; i++){
+			// debugger;
+			var el = children[i].querySelector('b > a');
+			if(el.innerHTML.indexOf('Amos') >= 0) continue;
+			if(el.innerHTML.indexOf('Croods') >= 0) continue;
+			data = {};
+			if(children[i].querySelector('.year_column').innerHTML.match(/\d{4}/)){
+				data.year = children[i].querySelector('.year_column').innerHTML.match(/\d{4}/)[0];
+			}
+			data.title = el.innerHTML;
+			if( data.title.indexOf("'") >= 0 ){
+				data.title = data.title.replace("'","");
+			}
+			var path = el.getAttribute('href');
+			path = path.substring(path.indexOf('tt'), path.length);
+			data.imdb_id = path.substring(0, path.indexOf('/'));
+			titles.push(data);
+		}
+		console.log(titles);
+		return titles
+	}
+})
+
+// post to postgresql db
+
+var postTitles = function(array){
+	$.ajax({
+		url: 'http://localhost:1337/scrape', 
+		type: 'POST',
+		data: {
+			data: JSON.stringify(array)
+		},
+		success: function(){
+			console.log('post successful');
+			console.log(array)
+		},
+		dataType: 'application/json',
+		error: function(e){
+			console.log('inside postTitles error')
+			if(e) throw e;
+		}
+	});
+}
+
+
+
+
+
+
+
+
+
+
 
